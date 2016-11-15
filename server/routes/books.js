@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var pg = require('pg');
-var connectionString = 'postgres://localhost:5432/sigma';
+var connectionString = 'postgres://localhost:5432/node_books';
 
 router.get('/', function(req, res) {
   console.log('get request');
@@ -37,9 +37,9 @@ router.post('/', function(req, res) {
     }
 
     client.query(
-      'INSERT INTO books (title, author, published, genre) ' +
-      'VALUES ($1, $2, $3, $4)',
-      [newBook.title, newBook.author, newBook.published, newBook.genre],
+      'INSERT INTO books (title, author, published, genre, edition, publisher) ' +
+      'VALUES ($1, $2, $3, $4, $5, $6)',
+      [newBook.title, newBook.author, newBook.published, newBook.genre, newBook.edition, newBook.publisher],
       function(err, result) {
         done();
 
