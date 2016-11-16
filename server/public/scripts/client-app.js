@@ -49,7 +49,7 @@ function postBook() {
 }
 
 function appendBooks(books) {
-  $("#books-list").empty();
+  $("#book-list").empty();
 
   for (var i = 0; i < books.length; i++) {
     $("#book-list").append('<div class="row book"></div>');
